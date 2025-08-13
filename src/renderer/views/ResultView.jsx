@@ -5,6 +5,6 @@ export default function ResultView() {
     const navigate = useNavigate();
 
     return(
-        <div></div>
+        <div>Result View</div>
     );
 }

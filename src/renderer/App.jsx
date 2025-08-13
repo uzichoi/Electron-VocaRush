@@ -7,6 +7,7 @@ import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import StartView from "./views/StartView";  
 import GameView from "./views/GameView";
 import SettingView from "./views/SettingView";
+import ResultView from "./views/ResultView";
 
 function App() {
   return (

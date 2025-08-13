@@ -94,8 +94,8 @@ export default function GameView() {
                     <div className="game-timer">{formatTime(gameState.timeIncreased)}</div>
                 </div>
                 <div className="header-right">
-                    <button className="btn-small" onClick={() => navigate('/')}>
-                        ← Back
+                    <button className="btn-small" onClick={() => navigate('/result')}>
+                        → Exit
                     </button>
                 </div>
             </div>

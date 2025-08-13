@@ -142,9 +142,9 @@ function GameView() {
     }, /*#__PURE__*/_react["default"].createElement("button", {
       className: "btn-small",
       onClick: function onClick() {
-        return navigate('/');
+        return navigate('/result');
       }
-    }, "\u2190 Back"))), /*#__PURE__*/_react["default"].createElement("div", {
+    }, "\u2192 Exit"))), /*#__PURE__*/_react["default"].createElement("div", {
       className: "game-main"
     }, /*#__PURE__*/_react["default"].createElement("div", {
       className: "player-info"
