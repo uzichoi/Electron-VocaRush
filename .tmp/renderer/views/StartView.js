@@ -10,7 +10,7 @@ function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default":
 function StartView() {
   var navigate = (0, _reactRouterDom.useNavigate)();
   return /*#__PURE__*/_react["default"].createElement("div", {
-    className: "start-screen"
+    className: "start-view"
   }, /*#__PURE__*/_react["default"].createElement("div", {
     style: {
       textAlign: "center"

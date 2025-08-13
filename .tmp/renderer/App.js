@@ -21,7 +21,7 @@ function App() {
     path: "/game",
     element: /*#__PURE__*/_react["default"].createElement(_GameView["default"], null)
   }), /*#__PURE__*/_react["default"].createElement(_reactRouterDom.Route, {
-    path: "/settings",
+    path: "/setting",
     element: /*#__PURE__*/_react["default"].createElement(_SettingView["default"], null)
   }), /*#__PURE__*/_react["default"].createElement(_reactRouterDom.Route, {
     path: "*",

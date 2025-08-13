@@ -14,7 +14,8 @@ function App() {
       <Routes>
         <Route path="/" element={<StartView />} />
         <Route path="/game" element={<GameView />} />
-        <Route path="/settings" element={<SettingView />} />
+        <Route path="/setting" element={<SettingView />} />
+        <Route path="/result" element={<ResultView />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </HashRouter>

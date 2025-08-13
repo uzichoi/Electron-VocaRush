@@ -6,7 +6,7 @@ export default function StartView() {
   const navigate = useNavigate();
 
   return (
-    <div className="start-screen">
+    <div className="start-view">
       <div style={{ textAlign: "center" }}>
         <h5 className="subtitle">WELCOME TO</h5>
         <h1 className="title">VocaRush</h1>
