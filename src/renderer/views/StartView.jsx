@@ -14,7 +14,7 @@ export default function StartView() {
             START
         </button>
         <div className="menu-row">
-          <button className="btn" onClick={() => navigate('/setting')}>How to Play</button>
+          <button className="btn" onClick={() => navigate('/setting')}>Menual</button>
           <button className="btn btn-danger" onClick={() => window.close()}>Exit</button>
         </div>
       </div>
