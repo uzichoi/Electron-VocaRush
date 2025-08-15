@@ -195,23 +195,6 @@ body {
     min-width: 100px;
 }
 
-.btn-small {
-    padding: 8px 16px;
-    font-size: 14px;
-    background: var(--muted);
-    border: 1px solid var(--muted-b2);
-    color: var(--text);
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.btn-small:hover {
-    background: rgba(255, 255, 255, 0.1);
-    cursor: pointer;
-    transform: translateY(-1px);
-}
-
 /* main game area - 수직 중앙 정렬 개선 */
 .game-main {
     display: grid;
@@ -656,7 +639,7 @@ body {
     }
 }
 
-/* Result View Styles */
+/* Ranking View Styles */
 
 .ranking-view {
     min-height: 100vh;
@@ -936,13 +919,443 @@ body {
     
     .player-score {
         font-size: 13px;
-    }
-    
+    }   
 }
 
+/* 플레이어 섹션 */
+.result-players-section {
+    flex: 0 0 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-height: 0;
+}
 
-/* End View Styles */
+.players-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+}/* Result View */
 
-.end-view {
-    min-width: 100vh;
+.result-view {
+    height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+}
+
+/* 헤더 */
+.result-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;  
+    border-bottom: 1px solid var(--muted-b2);
+    align-items: center;
+    padding: 20px 40px;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.result-title {
+    margin: 0;
+    font-size: 36px;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+/* 메인 콘텐츠 */
+.result-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    width: 100%;
+    min-height: 0;
+}
+
+.result-content {
+    flex: 1;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
+}
+
+/* 플레이어 섹션 */
+.player-section {
+    flex: 0 0 280px;
+    display: flex;
+    justify-content: center;
+}
+
+/* 보드 섹션 */
+.result-board-section {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 0;
+}
+
+.board-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--accent);
+    text-align: center;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.enhanced-game-board {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.result-grid {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 4px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 20px;
+    border-radius: 12px;
+    border: 2px solid var(--muted-b2);
+    backdrop-filter: blur(10px);
+}
+
+.grid-row {
+    display: contents;
+}
+
+.grid-cell {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Courier New', monospace;
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.grid-cell.empty {
+    background: rgba(255, 255, 255, 0.05);
+    color: #6b7280;
+}
+
+.grid-cell.letter {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text);
+    border: 1px solid var(--muted-b2);
+}
+
+/* 플레이어별 찾은 단어 색상 */
+.grid-cell.found-by-player1 {
+    background: linear-gradient(135deg, var(--accent), #ff6b6b);
+    color: white;
+    border: 2px solid var(--accent);
+    box-shadow: 0 0 10px rgba(244, 63, 94, 0.3);
+    animation: foundGlow 2s ease-in-out infinite alternate;
+}
+
+.grid-cell.found-by-player2 {
+    background: linear-gradient(135deg, #ffd93d, #ff6b35);
+    color: white;
+    border: 2px solid #ffd93d;
+    box-shadow: 0 0 10px rgba(255, 217, 61, 0.3);
+    animation: foundGlow 2s ease-in-out infinite alternate;
+}
+
+.grid-cell.unfound.letter {
+    background: rgba(107, 114, 128, 0.3);
+    color: #9ca3af;
+    border: 1px dashed #6b7280;
+}
+
+@keyframes foundGlow {
+    from { transform: scale(1); }
+    to { transform: scale(1.05); }
+}
+
+/* 플레이어 섹션 */
+.result-players-section {
+    flex: 0 0 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-height: 0;
+}
+
+.players-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+}
+
+/* 플레이어 박스 스타일 */
+.player-final {
+    width: 100%;
+    max-width: 280px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid var(--muted-b2);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.player-final:hover {
+    border-color: var(--accent);
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
+}
+
+.winner-crown {
+    position: absolute;
+    top: -10px;
+    right: 15px;
+    font-size: 24px;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-8px); }
+    60% { transform: translateY(-4px); }
+}
+
+.player-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+    font-size: 24px;
+    border: 2px solid var(--muted-b2);
+}
+
+.player-name {
+    margin: 0 0 8px 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--accent);
+}
+
+.final-score {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text);
+    margin: 10px 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.player-stats {
+    margin: 15px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    padding: 4px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stat-item span:first-child {
+    opacity: 0.7;
+}
+
+.achievement-badges {
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: linear-gradient(135deg, #ff6b6b, #ffd93d);
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 600;
+    color: white;
+    display: inline-block;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.match-stats {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--muted-b2);
+    border-radius: 8px;
+    padding: 12px 20px;
+    text-align: center;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.stat-row {
+    margin: 6px 0;
+    font-size: 13px;
+    opacity: 0.8;
+}
+
+/* 액션 버튼들 */
+.result-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    border-top: 1px solid var(--muted-b2);
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 0 0 12px 12px;
+    flex-shrink: 0;
+}
+
+.btn-secondary {
+    padding: 10px 20px;
+    font-size: 14px;
+    background: transparent;
+    border: 2px solid var(--muted-b2);
+    color: var(--text);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--accent);
+    transform: translateY(-1px);
+}
+
+/* 미디어 쿼리 */
+@media (max-width: 1200px) {
+    .result-content {
+        gap: 20px;
+    }
+    
+    .player-section {
+        flex: 0 0 250px;
+    }
+    
+    .grid-cell {
+        width: 30px;
+        height: 30px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .result-main {
+        padding: 15px;
+    }
+    
+    .result-content {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+    
+    .player-section {
+        flex: none;
+        width: 100%;
+        max-width: 400px;
+    }
+    
+    .result-board-section {
+        order: -1;
+    }
+    
+    .grid-cell {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .result-header {
+        padding: 15px 20px;
+    }
+    
+    .result-title {
+        font-size: 28px;
+    }
+    
+    .result-content {
+        gap: 15px;
+    }
+    
+    .player-section {
+        max-width: 300px;
+    }
+    
+    .result-actions {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+    
+    .btn-secondary {
+        width: 200px;
+    }
+    
+    .grid-cell {
+        width: 28px;
+        height: 28px;
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 480px) {
+    .result-main {
+        padding: 10px;
+    }
+    
+    .result-title {
+        font-size: 24px;
+    }
+    
+    .player-final {
+        padding: 15px;
+    }
+    
+    .final-score {
+        font-size: 24px;
+    }
+    
+    .grid-cell {
+        width: 25px;
+        height: 25px;
+        font-size: 10px;
+    }
+    
+    .result-grid {
+        gap: 3px;
+        padding: 15px;
+    }
 }

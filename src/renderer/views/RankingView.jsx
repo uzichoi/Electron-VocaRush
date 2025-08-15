@@ -25,7 +25,7 @@ export default function RankingView() {
 
     return(
         <div className="ranking-view">
-            <div className="ranking-header">
+            <header className="ranking-header">
                 <div className="header-left"></div>
                 <div className="header-center">
                     <div className="ranking-title">RANKING</div>
@@ -33,7 +33,7 @@ export default function RankingView() {
                 <div className="header-right">
                     <button className="btn-small" onClick={() => navigate('/result')} aria-label="close">×</button>
                 </div>
-            </div>
+            </header>
             <main className="ranking-content">
                 <div className="ranking-box">
                     <div className="ranking-list">

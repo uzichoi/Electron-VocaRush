@@ -85,23 +85,22 @@ export default function GameView() {
     // 화면 구성 시작
     return (       // 화면에 보여 줄 HTML 구조 반환
         <div className="game-view">
-            {/* 헤더 */}
-            <div className="game-header">
+            <header className="game-header">
                 <div className="header-left">
-                    <div className="title">VOCARUSH</div>
+                    <div className="game-title">VOCARUSH</div>
                 </div>
                 <div className="header-center">
                     <div className="game-timer">{formatTime(gameState.timeIncreased)}</div>
                 </div>
                 <div className="header-right">
                     <button className="btn-small" onClick={() => navigate('/result')}>
-                        → Quit
+                        Quit
                     </button>
                 </div>
-            </div>
+            </header>
  
             {/* 메인 게임 영역 */}
-            <div className="game-main">
+            <main className="game-main">
                 {/* 왼쪽 플레이어 정보 */}
                 <div className="player-info">
                     {/* 플레이어 사진 박스 */}
@@ -205,10 +204,10 @@ export default function GameView() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </main>
 
             {/* 하단 입력 영역 */}
-            <div className="game-input">
+            <footer className="game-input">
                 <form onSubmit={handleInputSubmit} className="input-form">
                     <div className="input-container">
                         <span className="input-label">Input &gt;&gt;</span>
@@ -228,7 +227,7 @@ export default function GameView() {
                         </button>
                     </div>
                 </form>
-            </div>
+            </footer>
         </div>
     );
 }
