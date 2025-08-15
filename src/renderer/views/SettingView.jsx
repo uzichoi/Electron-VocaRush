@@ -27,9 +27,8 @@ export default function SettingView() {
             </div>
         </div>
         <div className="setting-footer">
-            <button className="setting-btn-small" onClick={() => navigate('/')}>← Back</button>
+            <button className="setting-btn-small" onClick={() => navigate('/start')}>← Back</button>
         </div>
     </div>
-
   );
 }

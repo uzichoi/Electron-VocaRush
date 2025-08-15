@@ -88,18 +88,18 @@ export default function GameView() {
             {/* 헤더 */}
             <div className="game-header">
                 <div className="header-left">
-                    <div className="game-title">VOCARUSH</div>
+                    <div className="title">VOCARUSH</div>
                 </div>
                 <div className="header-center">
                     <div className="game-timer">{formatTime(gameState.timeIncreased)}</div>
                 </div>
                 <div className="header-right">
                     <button className="btn-small" onClick={() => navigate('/result')}>
-                        → Exit
+                        → Quit
                     </button>
                 </div>
             </div>
-
+ 
             {/* 메인 게임 영역 */}
             <div className="game-main">
                 {/* 왼쪽 플레이어 정보 */}

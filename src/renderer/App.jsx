@@ -8,16 +8,20 @@ import StartView from "./views/StartView";
 import GameView from "./views/GameView";
 import SettingView from "./views/SettingView";
 import ResultView from "./views/ResultView";
+import RankingView from "./views/RankingView";
+import EndView from "./EndView";
 
 function App() {
   return (
     <HashRouter>
       <Routes>
-        <Route path="/" element={<StartView />} />
+        <Route path="/start" element={<StartView />} />
         <Route path="/game" element={<GameView />} />
         <Route path="/setting" element={<SettingView />} />
         <Route path="/result" element={<ResultView />} />
-        <Route path="*" element={<Navigate to="/" replace />} />
+        <Route path="/ranking" element={<RankingView />} />
+        <Route path="end" element={<EndView />} />
+        <Route path="*" element={<Navigate to="/start" replace />} />
       </Routes>
     </HashRouter>
   );

@@ -8,13 +8,11 @@ export default function StartView() {
   return (
     <div className="start-view">
       <div style={{ textAlign: "center" }}>
-        <h5 className="subtitle">WELCOME TO</h5>
-        <h1 className="title">VocaRush</h1>
-
+        <h5 className="start-subtitle">WELCOME TO</h5>
+        <h1 className="start-title">VocaRush</h1>
         <button className="btn btn-primary" onClick={() => navigate('/game')}>
             START
         </button>
-
         <div className="menu-row">
           <button className="btn" onClick={() => navigate('/setting')}>How to Play</button>
           <button className="btn btn-danger" onClick={() => window.close()}>Exit</button>

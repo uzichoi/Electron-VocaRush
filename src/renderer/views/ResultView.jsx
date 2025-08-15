@@ -5,6 +5,12 @@ export default function ResultView() {
     const navigate = useNavigate();
 
     return(
-        <div>Result View</div>
+        <div>
+            <span className="result-view">Result View</span>
+            <button onClick={() => navigate('/ranking')}>View Ranking</button>
+            <button onClick={() => navigate('/start')}>Restart Game</button>
+            <button onClick={() => window.close()}>→ Exit</button>
+        </div>
+        
     );
 }

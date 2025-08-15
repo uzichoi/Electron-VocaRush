@@ -1,1 +1,4 @@
-node_modules
+# deps & build
+
+/node_modules/
+/.tmp/
