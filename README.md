@@ -1,50 +1,86 @@
-# 🧠 Electron VocaRush UI
+# VocaRush UI (Electron + React)
 
-> 콘솔 기반 2인 단어 배틀 게임 VocaRush의 UI 데모 프로젝트입니다.
-> React와 Electron을 활용해 실제 동작 가능한 인터페이스를 구현 중입니다.
-
----
-
-## 📌 프로젝트 개요
-
-- **목표**: 기존 C++ 콘솔 게임 구조를 Electron + React 환경에서 시각적으로 재현
-- **특징**:
-  - 키보드 이벤트 기반 UI 흐름 구현
-  - 보드 상태 실시간 시각화
-  - 반응형 디자인 및 게임 흐름 분리
+> **VocaRush**는 콘솔 기반 2인 단어 배틀 게임을  
+> **Electron + React** 환경에서 재현한 프로젝트입니다.  
+> 기존 콘솔 게임의 룰과 구조를 유지하면서, **UI 시각화와 화면 전환**을 강화했습니다.
 
 ---
 
-## 🖼️ 주요 화면
+## 🚩 핵심 특징
 
-| StartView | GameView | ResultView |
-|:--:|:--:|:--:|
-| ![Start](./images/StartView.png) | ![Game](./images/GameView.png) | ![Result](./images/ResultView.png) |
-
----
-
-## 🛠️ 사용 기술
-
-| 구분 | 기술 |
-|------|------|
-| **Frontend** | React (Vite 기반), JSX |
-| **UI 프레임워크** | Tailwind 기반 커스텀 스타일 |
-| **앱 환경** | Electron |
-| **배포 방식** | 로컬 실행 (데스크탑 앱 형태로 패키징 가능 예정) |
+- **화면 흐름**: Start → Manual → Game → Result → Ranking → End (Hash Router 기반)  
+- **게임 UI**: 플레이어 카드(점수/콤보/HP), 중앙 10×10 보드, 실시간 타이머  
+- **스타일**: CSS 변수 기반 커스텀 스타일 (반응형 포함, 글로벌 CSS 변수 활용)
 
 ---
 
-## 📂 프로젝트 구조
+## 🛠 기술 스택
+
+- **Runtime**: Electron ^37  
+- **UI**: React 18, React DOM 18, React Router v6  
+- **Build**: Babel (JSX → `.tmp` 변환 후 실행)  
+- **License**: ISC
+
+---
+
+## 📂 디렉터리 구조 (권장)
 
 ```bash
-📁 src/
-├── components/      # View 컴포넌트들 (StartView, GameView, ResultView 등)
-├── styles/          # 공통 CSS
-├── assets/          # 이미지, 폰트 등 리소스
-├── App.jsx          # 전체 라우팅 관리
-└── main.js          # Electron 진입점
+src/
+├─ main/                 # Electron 메인 프로세스
+│  ├─ index.js           # app.whenReady(), activate 핸들러
+│  └─ createWindows.js   # BrowserWindow 옵션, index.html 로딩
+└─ renderer/             # React 렌더러 프로세스
+   ├─ App.jsx            # 라우팅 (react-router-dom, HashRouter)
+   └─ views/
+      ├─ StartView.jsx
+      ├─ ManualView.jsx   
+      ├─ GameView.jsx
+      ├─ ResultView.jsx
+      ├─ RankingView.jsx
+      └─ EndView.jsx
+root directory/
+├─ .babelrc
+├─ .gitignore
+├─ index.html            # #app 마운트 및 .tmp/renderer/App.js 로드
+├─ package-lock.json
+├─ package.json
+└─ style.css
 ```
 
-## 🎥 데모 시연 영상
-> ※ 아래 이미지를 클릭하시면 데모 플레이 영상을 확인하실 수 있습니다.
+> ※ Electron은 index.html을 로드하고, 해당 HTML이 Babel 빌드 산출물(.tmp/renderer/App.js)을 require하여 React 앱을 실행합니다.
 
+---
+
+## ⚙️ 실행 방법
+
+```bash
+# 1) 의존성 설치
+npm install
+
+# 2) 개발 실행 (Babel 빌드 후 Electron 구동)
+npm start
+스크립트 동작:
+
+npm build: src → .tmp 디렉터리로 Babel 트랜스파일
+
+npm start: npm run build 후 electron .
+```
+
+---
+
+## 🚀 실행 화면
+| 화면 | 이미지 |
+ |:---:|:---:|
+ | **시작 화면** | <img src="./images/StartView.png" width="450px" /> | 
+ | **게임 화면 1** | <img src="./images/GameView-1.png" width="450px" /> | 
+ | **게임 화면 2** | <img src="./images/GameView-2.png" width="450px" /> | 
+ | **게임 설명** | <img src="./images/ManualView.png" width="450px" /> | 
+ | **랭킹 화면 1** | <img src="./images/RankingView-1.png" width="450px" /> | 
+ | **랭킹 화면 2** | <img src="./images/RankingView-2.png" width="450px" /> | 
+ | **결과 화면** | <img src="./images/ResultView.png" width="450px" /> |
+
+ ---
+
+## ✨ 한 줄 소개
+2인 단어 배틀 게임 — 제한 시간 안에 단어를 찾아내고, 콤보와 정확도로 승부를 가르는 실시간 대전 UI.

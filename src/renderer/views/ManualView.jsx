@@ -1,13 +1,13 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function MenualView() {
+export default function ManualView() {
   const navigate = useNavigate();
 
   return (
-    <div className="menual-view"> 
-        <div className="menual-title">How to Play</div>
-        <div className="menual-content">
+    <div className="manual-view"> 
+        <div className="manual-title">How to Play</div>
+        <div className="manual-content">
             <div className="description-board">
                 <div className="description-row">
                     <span>1.  2인 배틀형 단어 찾기 게임입니다.</span>
@@ -26,8 +26,8 @@ export default function MenualView() {
                 </div>
             </div>
         </div>
-        <footer className="menual-footer">
-            <button className="menual-btn-small" onClick={() => navigate('/start')}>← Back</button>
+        <footer className="manual-footer">
+            <button className="manual-btn-small" onClick={() => navigate('/start')}>← Back</button>
         </footer>
     </div>
   );

@@ -6,7 +6,7 @@ import { createRoot } from "react-dom/client";    // named export
 import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import StartView from "./views/StartView";  
 import GameView from "./views/GameView";
-import MenualView from "./views/MenualView";
+import ManualView from "./views/ManualView";
 import ResultView from "./views/ResultView";
 import RankingView from "./views/RankingView";
 import EndView from "./views/EndView";
@@ -17,7 +17,7 @@ function App() {
       <Routes>
         <Route path="/start" element={<StartView />} />
         <Route path="/game" element={<GameView />} />
-        <Route path="/menual" element={<MenualView />} />
+        <Route path="/manual" element={<ManualView />} />
         <Route path="/result" element={<ResultView />} />
         <Route path="/ranking" element={<RankingView />} />
         <Route path="end" element={<EndView />} />
