@@ -6,10 +6,10 @@ import { createRoot } from "react-dom/client";    // named export
 import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import StartView from "./views/StartView";  
 import GameView from "./views/GameView";
-import SettingView from "./views/SettingView";
+import MenualView from "./views/MenualView";
 import ResultView from "./views/ResultView";
 import RankingView from "./views/RankingView";
-import EndView from "./EndView";
+import EndView from "./views/EndView";
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
       <Routes>
         <Route path="/start" element={<StartView />} />
         <Route path="/game" element={<GameView />} />
-        <Route path="/setting" element={<SettingView />} />
+        <Route path="/menual" element={<MenualView />} />
         <Route path="/result" element={<ResultView />} />
         <Route path="/ranking" element={<RankingView />} />
         <Route path="end" element={<EndView />} />
