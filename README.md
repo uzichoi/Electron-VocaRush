@@ -59,9 +59,6 @@ root directory/
 npm install
 
 # 2) 개발 실행 (Babel 빌드 후 Electron 구동)
-npm start
-스크립트 동작:
-
 npm build: src → .tmp 디렉터리로 Babel 트랜스파일
 
 npm start: npm run build 후 electron .
