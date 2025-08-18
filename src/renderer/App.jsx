@@ -9,7 +9,6 @@ import GameView from "./views/GameView";
 import ManualView from "./views/ManualView";
 import ResultView from "./views/ResultView";
 import RankingView from "./views/RankingView";
-import EndView from "./views/EndView";
 
 function App() {
   return (
@@ -20,7 +19,6 @@ function App() {
         <Route path="/manual" element={<ManualView />} />
         <Route path="/result" element={<ResultView />} />
         <Route path="/ranking" element={<RankingView />} />
-        <Route path="end" element={<EndView />} />
         <Route path="*" element={<Navigate to="/start" replace />} />
       </Routes>
     </HashRouter>
